@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harshdeep Singh</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        color: #fff;
+        background: rgb(160, 139, 139);
+        background-size: 200% 200%;
+        animation: gradient 10s ease infinite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px; /* Add padding to ensure space around the container */
+        box-sizing: border-box; /* Include padding in the element's total width and height */
+        scrollbar-width: thin; /* Firefox scrollbar width */
+        scrollbar-color: #ff0000 #2a2222; /* Firefox scrollbar colors */
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background-color: #2a2222;
+        border-radius: 10px;
+        padding: 20px 50px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        width: 100%;
+        max-width: 600px; /* Adjust as needed */
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        font-size: 2.5em;
+    }
+
+    .profile-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        border: 5px solid #ffffff;
+    }
+
+    .links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 10px 0;
+        padding: 15px;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 5px;
+        font-size: 1.1em;
+        transition: transform 0.3s, box-shadow 0.3s;
+        position: relative;
+    }
+
+    .links a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .links a i {
+        margin-right: 10px;
+    }
+
+    .github { background-color: #037a05; }
+    .leetcode { background-color: #f7ba2d; color: #333; }
+    .linkedin { background-color: #0077b5; }
+    .projects { background-color: #28a745; }
+    .certifications { background-color: #dc3545; }
+    .hackerrank { background-color: #2F4F4F; }
+
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .modal-content {
+        background-color: rgb(160, 139, 139);
+        color: #333;
+        border-radius: 10px;
+        padding: 20px;
+        width: 80%;
+        max-width: 500px;
+        position: relative;
+        text-align: center; /* Center text inside modal */
+    }
+
+    .modal-content h2 {
+        margin-top: 0;
+    }
+
+    .modal-content .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+
+    .modal-content ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .modal-content ul li {
+        margin-bottom: 10px;
+    }
+
+    .modal-content a {
+        color: white;
+        font-weight: bolder;
+        text-decoration: none;
+    }
+
+    .modal-content a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+        h1 {
+            font-size: 2em;
+        }
+        .links a {
+            padding: 12px;
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
+
+</style>
+</head>
+<body>
+<div class="container">
+    <img src="https://media.licdn.com/dms/image/D5603AQEvhJxMWlkaxw/profile-displayphoto-shrink_800_800/0/1721651756143?e=1727913600&v=beta&t=_Arm5IhyY3ihjn0ioNF3YpYwVWUJPtQG_xvEPQ70huM" alt="Profile Picture" class="profile-img">
+    <h1>Harshdeep Singh</h1>
+    <div class="links">
+        <a href="#" class="projects" onclick="openModal('projectsModal')"><i class="fas fa-project-diagram"></i> Projects</a>
+        <a href="#" class="certifications" onclick="openModal('certificationsModal')"><i class="fas fa-certificate"></i> Certifications</a>
+        <a href="https://www.linkedin.com/in/harshdeepsingh-/" class="linkedin" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/harshgitdeep" class="github" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://leetcode.com/u/harshgitdeep/" class="leetcode" target="_blank"><i class="fas fa-code"></i> LeetCode</a>
+        <a href="https://www.hackerrank.com/profile/iharsh3" class="hackerrank" target="_blank"><i class="fab fa-hackerrank"></i> HackerRank</a>
+    </div>
+</div>
+
+<!-- Modals -->
+<div id="projectsModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('projectsModal')">&times;</span>
+        <h2>Projects Options</h2>
+        <ul>
+            <li><a href="https://wordhive.vercel.app/" target="_blank">Project 1 : WordHive</a></li>
+            <li><a href="https://solve9.vercel.app/" target="_blank">Project 2 : Solve9</a></li>
+        </ul>
+    </div>
+</div>
+
+<div id="certificationsModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('certificationsModal')">&times;</span>
+        <h2>Certifications Options</h2>
+        <ul>
+            <li><a href="https://drive.google.com/file/d/1VwdIBwR8PXJ7kzDWacr2dJiLDjsd03XW/view" target="_blank">Certification 1 : JavaScript Essentials 1 (JSE) (Cisco Netcad)</a></li>
+            <li><a href="https://www.udemy.com/certificate/UC-1d10646a-1651-4a1b-9fc1-599e2db965a0/" target="_blank">Certification 2 : 2023 Web Development Bootcamp (Udemy)</a></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = 'flex';    
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+</script>
+</body>
+</html>
